@@ -1,0 +1,218 @@
+\usepackage[most]{tcolorbox}
+
+\usepackage[margin=0.3in]{geometry}
+\geometry{
+    a4paper,
+    left=-0.3cm,
+    right=0.3cm,
+    top=0.1cm,
+    bottom=0.1cm
+}
+
+% Fonts
+\usepackage[TU]{fontenc}
+\usepackage{fourier-otf}
+
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% to have awesome icon
+\usepackage{fontawesome5}
+\usepackage{academicons}
+
+% advanced drawing
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{smartdiagram}
+\usepackage{float}
+\usepackage{array}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{fadings}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.misc,positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds} 
+\usetikzlibrary{shadings}
+\usetikzlibrary{calendar} 
+\usetikzlibrary{er}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shapes} 
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{decorations}
+\usetikzlibrary{topaths}
+\usepackage{graphicx}
+% \usepackage[abs]{overpic} % to overlay images
+
+% set TikZ styles
+\tikzset{
+  contactIcon/.style={%
+    minimum height=\baselineskip,
+  }
+}
+
+% pictures
+\usepackage{graphicx}
+% loads graphicx, provides align=c option for vertical alignment w.r.t. text
+\RequirePackage{graphbox}
+
+% \RequirePackage[default]{raleway}
+\RequirePackage{listofitems}
+
+% more advanced expressions in \setlength
+\usepackage{calc}
+
+% links
+\usepackage[hidelinks]{hyperref}
+
+% Define Colors
+\RequirePackage{xcolor}
+% \definecolor{titleBackColor}{RGB}{67, 124, 166}
+\definecolor{titleBackColor}{rgb}{0.25,0.25,0.25}
+\definecolor{sideBarColor}{rgb}{0.6,0.6,0.6}
+\definecolor{appliedYellow}{RGB}{255, 190, 0}
+
+% Define Lengths
+\newlength\cvPictureWidth
+\setlength\cvPictureWidth{4cm}
+
+% avoid line overflow
+% \setlength{\emergencystretch}{2pt}
+
+% top box with simple header
+\newcommand{\simpleheader}[5]{
+\tikz[remember picture,overlay] {%
+\node[rectangle, fill=#1, anchor=north, minimum width=\paperwidth, minimum height=2.5cm](header) at (current page.north){};% minimum height=3.5cm
+\node[draw=none, align=left](name) at (header) {%
+{\Huge \color{#5} \textbf{#3 #2}}%
+};%
+\node[draw=none, below](description) at (name.south) {\bfseries\color{white}#4};% appliedYellow
+}\vspace{-1.7cm}%
+}
+
+% Command Example:
+% \simpleheader{titleBackColor}{Name}{Surname}{Job}{textColor}
+
+% SideBar
+\newcommand{\sidebar}[1]{
+\tikz[remember picture,overlay] {%
+\node[rectangle, fill=#1, anchor=north west, minimum width=7.3cm, minimum height=\paperheight](header) at (current page.north west){};%
+}\vspace{-0.7cm}%
+}
+
+% Circled Icons
+\newcommand*{\circled}[1]{
+    \tikz[baseline=(char.base)]{
+        \node[shape=circle,fill=black,minimum size=20pt] (char) {\textcolor{white}{#1}};
+    }
+}
+
+% Flag for Languages section and for all small personal icons
+\newcommand{\flag}[1]{\includegraphics[align=c, width=20pt]{#1}}
+
+% Flag for Languages section and for all small personal icons
+\newcommand{\icon}[1]{\includegraphics[align=c, height=12.5pt]{#1}}
+
+% Tech Stack boxes
+\newcommand{\keyword}[1]{%
+    \tikz[baseline=(char.base)]
+    {
+        \node[anchor=base,thick,draw=black,rounded corners=1mm,fill=sideBarColor!25,inner xsep=.5ex,inner ysep =1.25ex,text height=1.25ex,text depth=0ex]{\textcolor{black}{\bfseries\footnotesize #1}};
+    }
+}
+
+% Command for Work
+\newcommand{\MySectionNoPic}[7]{
+    \adjustbox{valign=t}{\begin{minipage}{1.3cm}
+    \begin{center}
+        {\small \bfseries #1} \\
+        \vspace*{0.1cm}
+        \includegraphics[width=1.2cm]{#2}
+    \end{center}
+    \end{minipage}}
+    \hfill \vline \hfill
+    \adjustbox{valign=t}{\begin{minipage}{11.2cm}
+        {\normalsize \bfseries #3}
+        \small
+        % \tcbox[enhanced,box align=base,nobeforeafter,colback=appliedYellow,colframe=titleBackColor,size=fbox,arc=0mm]
+        {\emph{#6}}
+        \hfill
+        {\footnotesize\faPeriscope  ~ #5}
+        \newline
+        {\small\bfseries #4}
+        \footnotesize {#7}
+        \vspace{1.5pt} \\
+%         \ifthenelse{{\equal{#8}{}}}
+%         {}
+%         {
+%             \readlist\keywordlist{#8}
+%             {
+%                 \foreachitem\word\in\keywordlist{\keyword{\word}}
+%             }
+%         }
+    \end{minipage}}
+}
+
+% Command for Education
+\newcommand{\MySection}[7]{
+    \adjustbox{valign=t}{\begin{minipage}{1.3cm}
+        \begin{center}
+            {\small \bfseries #1} \\
+            \vspace*{0.1cm}
+            \includegraphics[width=1.2cm]{#2}
+        \end{center}
+    \end{minipage}}
+    \hfill \vline \hfill
+    \adjustbox{valign=t}{\begin{minipage}{11.2cm}
+        {\normalsize\bfseries #3}
+        \small
+        % \tcbox[enhanced,box align=base,nobeforeafter,colback=appliedYellow,colframe=titleBackColor,size=fbox,arc=0mm]
+        {\emph{#6}}
+        \hfill
+        {\footnotesize \faPeriscope  ~ #5}
+        \newline
+        {\small\bfseries #4}
+        \footnotesize {#7}
+        \vspace{1.5pt} \\
+%         \ifthenelse{{\equal{#8}{}}}
+%         {}
+%         {
+%             \readlist\keywordlist{#8}
+%             {
+%                 \foreachitem\word\in\keywordlist{\keyword{\word}}
+%             }
+%         }
+    \end{minipage}}
+}
+
+\usepackage{adjustbox} % to a better alignement of text
+
+% Format of the title section in the side column
+% based on https://tex.stackexchange.com/questions/65731
+\makeatletter
+\def\cv@hrulefill{{\color{titleBackColor}\leavevmode\leaders\hrule height 1pt\hfill\kern\z@}}
+% line before and after text (some tweaking is required here)
+% based on https://tex.stackexchange.com/questions/15119
+\NewDocumentCommand{\ruleline}{m}{\par\noindent\raisebox{\baselineskip/4}{\makebox[\linewidth]{\cv@hrulefill\hspace{1ex}\raisebox{-\baselineskip/4}{\large #1}\hspace{1ex}\cv@hrulefill}}\vspace*{0.05cm}}
+\makeatother
+
+\usepackage{titlesec} % Allows creating custom \sections
+
+% Format of the section titles
+\titleformat{\section}{
+\bf \Large\raggedright}{}{0em}{}[\titlerule] % smallcaps, Large, continuous line - looks better if two columns, might look a bit too dramatic if just one ;) 
+\titlespacing{\section}{0pt}{12pt}{5pt} % Spacing around titles {<left spacing>}{<before spacing>}{<after spacing>}
+
+% Multiple Column Package
+\usepackage{multicol}
+
+% Generate QR Code from a link
+\usepackage{qrcode}
+
+% Info
+\title{My CV}
+\date{2024/10/10}
+\author{Ethan Lin}
+
+\newcommand{\resheading}[1]{{\colorbox{sideBarColor!40} { \begin{minipage}{0.985\textwidth}\centering{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}

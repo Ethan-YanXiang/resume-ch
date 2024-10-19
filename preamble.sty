@@ -123,7 +123,7 @@
 }
 
 % Command for Work
-\newcommand{\MySectionNoPic}[7]{
+\newcommand{\MySectionNoPic}[8]{
     \adjustbox{valign=t}{\begin{minipage}{1.3cm}
     \begin{center}
         {\small \bfseries #1} \\
@@ -143,19 +143,19 @@
         {\small\bfseries #4}
         \footnotesize {#7}
         \vspace{1.5pt} \\
-        % \ifthenelse{{\equal{#8}{}}}
-        % {}
-        % {
-        %     \readlist\keywordlist{#8}
-        %     {
-        %         \foreachitem\word\in\keywordlist{\keyword{\word}}
-        %     }
-        % }
+        \ifthenelse{{\equal{#8}{}}}
+        {}
+        {
+            \readlist\keywordlist{#8}
+            {
+                \foreachitem\word\in\keywordlist{\keyword{\word}}
+            }
+        }
     \end{minipage}}
 }
 
 % Command for Education
-\newcommand{\MySection}[7]{
+\newcommand{\MySection}[8]{
     \adjustbox{valign=t}{\begin{minipage}{1.3cm}
         \begin{center}
             {\small \bfseries #1} \\
@@ -175,14 +175,14 @@
         {\small\bfseries #4}
         \footnotesize {#7}
         \vspace{1.5pt} \\
-        % \ifthenelse{{\equal{#8}{}}}
-        % {}
-        % {
-        %     \readlist\keywordlist{#8}
-        %     {
-        %         \foreachitem\word\in\keywordlist{\keyword{\word}}
-        %     }
-        % }
+        \ifthenelse{{\equal{#8}{}}}
+        {}
+        {
+            \readlist\keywordlist{#8}
+            {
+                \foreachitem\word\in\keywordlist{\keyword{\word}}
+            }
+        }
     \end{minipage}}
 }
 

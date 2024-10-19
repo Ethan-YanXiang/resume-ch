@@ -112,13 +112,13 @@
 \newcommand{\flag}[1]{\includegraphics[align=c, width=20pt]{#1}}
 
 % Flag for Languages section and for all small personal icons
-\newcommand{\icon}[1]{\includegraphics[align=c, height=12.5pt]{#1}}
+\newcommand{\icon}[1]{\includegraphics[align=c, height=10pt]{#1}}
 
 % Tech Stack boxes
 \newcommand{\keyword}[1]{%
     \tikz[baseline=(char.base)]
     {
-        \node[anchor=base,thick,draw=black,rounded corners=1mm,fill=sideBarColor!25,inner xsep=.5ex,inner ysep =1.25ex,text height=1.25ex,text depth=0ex]{\textcolor{black}{\bfseries\footnotesize #1}};
+            \node[anchor=base,thick,draw=black,rounded corners=1mm,fill=sideBarColor!25,inner xsep=1.090461731ex,inner ysep =1.25ex,text height=1.25ex,text depth=0ex]{\textcolor{black}{\bfseries\footnotesize #1}};
     }
 }
 
@@ -143,14 +143,14 @@
         {\small\bfseries #4}
         \footnotesize {#7}
         \vspace{1.5pt} \\
-%         \ifthenelse{{\equal{#8}{}}}
-%         {}
-%         {
-%             \readlist\keywordlist{#8}
-%             {
-%                 \foreachitem\word\in\keywordlist{\keyword{\word}}
-%             }
-%         }
+        % \ifthenelse{{\equal{#8}{}}}
+        % {}
+        % {
+        %     \readlist\keywordlist{#8}
+        %     {
+        %         \foreachitem\word\in\keywordlist{\keyword{\word}}
+        %     }
+        % }
     \end{minipage}}
 }
 
@@ -175,14 +175,14 @@
         {\small\bfseries #4}
         \footnotesize {#7}
         \vspace{1.5pt} \\
-%         \ifthenelse{{\equal{#8}{}}}
-%         {}
-%         {
-%             \readlist\keywordlist{#8}
-%             {
-%                 \foreachitem\word\in\keywordlist{\keyword{\word}}
-%             }
-%         }
+        % \ifthenelse{{\equal{#8}{}}}
+        % {}
+        % {
+        %     \readlist\keywordlist{#8}
+        %     {
+        %         \foreachitem\word\in\keywordlist{\keyword{\word}}
+        %     }
+        % }
     \end{minipage}}
 }
 
@@ -214,5 +214,3 @@
 \title{My CV}
 \date{2024/10/10}
 \author{Ethan Lin}
-
-\newcommand{\resheading}[1]{{\colorbox{sideBarColor!40} { \begin{minipage}{0.985\textwidth}\centering{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}

@@ -68,7 +68,7 @@
 
 % Define Colors
 \RequirePackage{xcolor}
-% \definecolor{titleBackColor}{RGB}{67, 124, 166}
+\definecolor{appliedBlue}{RGB}{67, 124, 166}
 \definecolor{titleBackColor}{rgb}{0.25,0.25,0.25}
 \definecolor{sideBarColor}{rgb}{0.6,0.6,0.6}
 \definecolor{appliedYellow}{RGB}{255, 190, 0}
@@ -183,6 +183,36 @@
                 \foreachitem\word\in\keywordlist{\keyword{\word}}
             }
         }
+    \end{minipage}}
+}
+
+% Command for Project
+\newcommand{\MyProject}[8]{
+    \adjustbox{valign=t}{\begin{minipage}{1.9cm}
+        \begin{center}
+            {\small \bfseries #1} \\
+        \end{center}
+    \end{minipage}}
+    \vline \hfill
+    \adjustbox{valign=t}{\begin{minipage}{17.9cm}
+            {\normalsize \bfseries #2}
+            \small
+            % \tcbox[enhanced,box align=base,nobeforeafter,colback=appliedYellow,colframe=titleBackColor,size=fbox,arc=0mm]
+            {\emph{【#3】}}
+            \hspace*{#4}
+            {\small #5}
+            \newline
+            {\small #6}
+            \footnotesize {#7}
+            \vspace{1.5pt} \\
+            \ifthenelse{{\equal{#8}{}}}
+            {}
+            {
+                \readlist\keywordlist{#8}
+                {
+                    \foreachitem\word\in\keywordlist{\keyword{\word}}
+                }
+            }
     \end{minipage}}
 }
 
